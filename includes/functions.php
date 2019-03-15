@@ -11,7 +11,7 @@ function getPatron($patronID) {
     $uri .= apiVer;
     $uri .= '/patrons/';
     $uri .= $patronID;
-    $uri .= '?fields=names,emails,barcodes,expirationDate';
+    $uri .= '?fields=names,emails,barcodes,expirationDate,addresses';
 
     $apiToken = getCurrentApiAccessToken();
 
@@ -49,7 +49,7 @@ function setApiAccessToken()
     // Build the header
     $headers = array(
         "Authorization: Basic " . $authCredentials,
-        "Content-Type: application/x-www-form-urlencoded"
+        "Content-Type: application/json;charset=utf-8"
     );
 
     // make the request
